@@ -771,47 +771,70 @@ a { color: inherit; text-decoration: none; }
     display: none;
     position: absolute;
     top: 68px; left: 0; right: 0;
-    background: rgba(10,10,11,0.97);
+    background: rgba(10,10,11,0.98);
     backdrop-filter: blur(16px);
-    padding: 16px 24px 24px;
+    padding: 8px 16px 20px;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
     border-bottom: 1px solid var(--border);
+    text-align: left;
   }
   .nav-links.open { display: flex; }
-  .nav-links > li > a { width: 100%; padding: 12px 16px; border-radius: 8px; }
-  /* Mobile dropdown — tap Services to expand inline */
+  /* All nav links: left-aligned, full width, large tap target */
+  .nav-links > li > a {
+    display: block;
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--text-2);
+    text-align: left;
+  }
+  .nav-links > li > a:hover { background: rgba(255,255,255,0.05); color: var(--text); }
+  .nav-links .nav-cta { text-align: center !important; }
+
+  /* Services row — full-width tap, chevron on right */
   .dropdown-toggle { display: none; }
+  .has-dropdown > a {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .has-dropdown > a::after {
+    content: '›';
+    font-size: 1.4rem;
+    line-height: 1;
+    opacity: 0.4;
+    transition: transform 0.25s;
+    flex-shrink: 0;
+  }
+  .has-dropdown.open > a { color: var(--text); }
+  .has-dropdown.open > a::after { transform: rotate(90deg); opacity: 1; }
+
+  /* Submenu slides open beneath Services */
   .dropdown {
     position: static;
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
     transform: none;
-    transition: max-height 0.3s ease;
     box-shadow: none;
     border: none;
-    border-left: 2px solid rgba(220,38,38,0.4);
+    border-left: 2px solid var(--border-red);
     background: transparent;
-    padding: 4px 0 4px 16px;
-    margin-top: 4px;
+    padding: 0;
+    margin: 0 0 4px 16px;
     max-height: 0;
     overflow: hidden;
+    transition: max-height 0.3s ease;
   }
-  .has-dropdown.open .dropdown { max-height: 300px; }
-  .has-dropdown > a {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .has-dropdown.open .dropdown { max-height: 400px; }
+  .dropdown li a {
+    padding: 12px 14px;
+    font-size: 0.95rem;
+    border-radius: 6px;
   }
-  .has-dropdown > a::after {
-    content: '›';
-    font-size: 1.2rem;
-    opacity: 0.5;
-    transition: transform 0.2s;
-  }
-  .has-dropdown.open > a::after { transform: rotate(90deg); opacity: 1; }
+  .dropdown-group { padding: 10px 14px 4px; }
 
   .tabs { flex-wrap: wrap; width: 100%; }
   .tab { flex: 1 1 40%; text-align: center; padding: 10px 12px; }
