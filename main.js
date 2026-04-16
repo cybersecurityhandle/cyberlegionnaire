@@ -11,28 +11,36 @@ const navToggle = document.getElementById('navToggle');
 const navLinks  = document.getElementById('navLinks');
 if (navToggle) {
   navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-  navLinks.querySelectorAll('a:not(.has-dropdown a[href="#"])').forEach(a => {
+  navLinks.querySelectorAll('li:not(.has-dropdown) a').forEach(a => {
     a.addEventListener('click', () => navLinks.classList.remove('open'));
   });
 }
 
-// Services dropdown — click to open, click outside to close
-document.querySelectorAll('.has-dropdown > a').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    e.stopPropagation(); // prevent bubbling to document close handler
-    const li = a.parentElement;
+// Dropdown — chevron button toggles, pointerdown outside closes
+function closeAllDropdowns() {
+  document.querySelectorAll('.has-dropdown').forEach(el => el.classList.remove('open'));
+}
+
+document.querySelectorAll('.dropdown-toggle').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    const li = btn.closest('.has-dropdown');
     const isOpen = li.classList.contains('open');
-    document.querySelectorAll('.has-dropdown').forEach(el => el.classList.remove('open'));
+    closeAllDropdowns();
     if (!isOpen) li.classList.add('open');
   });
 });
-// stop clicks inside the dropdown from closing it
-document.querySelectorAll('.dropdown').forEach(d => {
-  d.addEventListener('click', e => e.stopPropagation());
+
+// pointerdown fires on clicks but NOT on scroll — solves the scroll-closes bug
+document.addEventListener('pointerdown', e => {
+  if (!e.target.closest('.has-dropdown')) {
+    closeAllDropdowns();
+  }
 });
-document.addEventListener('click', () => {
-  document.querySelectorAll('.has-dropdown').forEach(el => el.classList.remove('open'));
+
+// Reset on bfcache restore (back/forward navigation)
+window.addEventListener('pageshow', () => {
+  closeAllDropdowns();
 });
 
 // Animate elements into view
