@@ -132,14 +132,6 @@ a { color: inherit; text-decoration: none; }
   height: 36px;
   display: block;
 }
-.nav-logo-fallback {
-  display: none;
-  font-family: var(--font-head);
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--text);
-}
 .nav-links {
   display: flex;
   align-items: center;
@@ -313,7 +305,7 @@ a { color: inherit; text-decoration: none; }
 }
 .service-card:hover { background: #1c1c1f; }
 .service-card.featured {
-  grid-row: 1 / 3;
+  grid-row: 1 / 4;
   background: #111114;
   border: 1px solid var(--border-red);
   position: relative;
@@ -553,14 +545,6 @@ a { color: inherit; text-decoration: none; }
   height: 32px;
   margin-bottom: 16px;
   display: block;
-}
-.footer-logo-fallback {
-  display: none;
-  font-family: var(--font-head);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 16px;
 }
 .footer-brand p { color: var(--text-3); font-size: 0.9rem; line-height: 1.7; }
 .footer-links h4 {
