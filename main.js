@@ -7,15 +7,51 @@ window.addEventListener('scroll', () => {
 // Mobile nav toggle
 const navToggle = document.getElementById('navToggle');
 const navLinks  = document.getElementById('navLinks');
-navToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-});
-// Close on link click
+navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
 navLinks.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => navLinks.classList.remove('open'));
 });
 
-// Contact form — mailto fallback
+// Mobile dropdown toggle (tap to open)
+document.querySelectorAll('.has-dropdown > a').forEach(a => {
+  a.addEventListener('click', e => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      a.parentElement.classList.toggle('open');
+    }
+  });
+});
+
+// Service tabs
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+    // Re-trigger animations for newly visible cards
+    document.querySelectorAll('#tab-' + tab.dataset.tab + ' .service-card').forEach(el => {
+      el.classList.remove('visible');
+      requestAnimationFrame(() => requestAnimationFrame(() => observer.observe(el)));
+    });
+  });
+});
+
+// Animate elements into view
+const observer = new IntersectionObserver(
+  entries => entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  }),
+  { threshold: 0.08 }
+);
+document.querySelectorAll('.service-card, .pillar, .info-card').forEach(el => {
+  observer.observe(el);
+});
+
+// Contact form → mailto
 document.getElementById('contactForm').addEventListener('submit', e => {
   e.preventDefault();
   const name    = document.getElementById('name').value;
@@ -29,25 +65,3 @@ document.getElementById('contactForm').addEventListener('submit', e => {
   );
   window.location.href = `mailto:info@cyberlegionnaire.com?subject=${subject}&body=${body}`;
 });
-
-// Animate elements into view
-const observer = new IntersectionObserver(
-  entries => entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      observer.unobserve(e.target);
-    }
-  }),
-  { threshold: 0.1 }
-);
-document.querySelectorAll('.service-card, .pillar, .info-card').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(16px)';
-  el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-  observer.observe(el);
-});
-document.addEventListener('animationframe', () => {});
-// Apply visible state via class
-const style = document.createElement('style');
-style.textContent = '.visible { opacity: 1 !important; transform: none !important; }';
-document.head.appendChild(style);
