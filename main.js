@@ -21,6 +21,7 @@ function closeAllDropdowns() {
   document.querySelectorAll('.has-dropdown').forEach(el => el.classList.remove('open'));
 }
 
+// Chevron button (desktop)
 document.querySelectorAll('.dropdown-toggle').forEach(btn => {
   btn.addEventListener('click', e => {
     e.stopPropagation();
@@ -28,6 +29,20 @@ document.querySelectorAll('.dropdown-toggle').forEach(btn => {
     const isOpen = li.classList.contains('open');
     closeAllDropdowns();
     if (!isOpen) li.classList.add('open');
+  });
+});
+
+// On mobile, tapping "Services" text also toggles (don't navigate)
+document.querySelectorAll('.has-dropdown > a').forEach(a => {
+  a.addEventListener('click', e => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      e.stopPropagation();
+      const li = a.closest('.has-dropdown');
+      const isOpen = li.classList.contains('open');
+      closeAllDropdowns();
+      if (!isOpen) li.classList.add('open');
+    }
   });
 });
 

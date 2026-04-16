@@ -786,6 +786,17 @@ a { color: inherit; text-decoration: none; }
 
   .tabs { flex-wrap: wrap; width: 100%; }
   .tab { flex: 1 1 40%; text-align: center; padding: 10px 12px; }
+
+  /* Mobile: hide chevron, make Services text full-width tap target */
+  .dropdown-toggle { display: none; }
+  .has-dropdown > a { width: 100%; display: flex; justify-content: space-between; }
+  .has-dropdown > a::after {
+    content: '›';
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+    display: inline-block;
+  }
+  .has-dropdown.open > a::after { transform: rotate(90deg); }
   .teaser-grid { grid-template-columns: 1fr; }
   .cta-inner { flex-direction: column; text-align: center; }
 
