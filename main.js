@@ -20,16 +20,19 @@ if (navToggle) {
 document.querySelectorAll('.has-dropdown > a').forEach(a => {
   a.addEventListener('click', e => {
     e.preventDefault();
+    e.stopPropagation(); // prevent bubbling to document close handler
     const li = a.parentElement;
     const isOpen = li.classList.contains('open');
     document.querySelectorAll('.has-dropdown').forEach(el => el.classList.remove('open'));
     if (!isOpen) li.classList.add('open');
   });
 });
-document.addEventListener('click', e => {
-  if (!e.target.closest('.has-dropdown')) {
-    document.querySelectorAll('.has-dropdown').forEach(el => el.classList.remove('open'));
-  }
+// stop clicks inside the dropdown from closing it
+document.querySelectorAll('.dropdown').forEach(d => {
+  d.addEventListener('click', e => e.stopPropagation());
+});
+document.addEventListener('click', () => {
+  document.querySelectorAll('.has-dropdown').forEach(el => el.classList.remove('open'));
 });
 
 // Animate elements into view
