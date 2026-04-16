@@ -32,17 +32,15 @@ document.querySelectorAll('.dropdown-toggle').forEach(btn => {
   });
 });
 
-// On mobile, tapping "Services" text also toggles (don't navigate)
+// Clicking "Services" text toggles dropdown on all screen sizes
 document.querySelectorAll('.has-dropdown > a').forEach(a => {
   a.addEventListener('click', e => {
-    if (window.innerWidth <= 768) {
-      e.preventDefault();
-      e.stopPropagation();
-      const li = a.closest('.has-dropdown');
-      const isOpen = li.classList.contains('open');
-      closeAllDropdowns();
-      if (!isOpen) li.classList.add('open');
-    }
+    e.preventDefault();
+    e.stopPropagation();
+    const li = a.closest('.has-dropdown');
+    const isOpen = li.classList.contains('open');
+    closeAllDropdowns();
+    if (!isOpen) li.classList.add('open');
   });
 });
 
