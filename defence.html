@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cyber Defence — CyberLegionnaire</title>
+  <meta name="description" content="24/7 endpoint, network, and cloud protection. DFIR, vulnerability management, and tabletop exercises." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <nav class="nav scrolled" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo-text">CyberLegionnaire</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li class="has-dropdown">
+          <a href="services.html" class="nav-active">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="11" height="11"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <ul class="dropdown">
+            <li><a href="defence.html" class="nav-active">Cyber Defence</a></li>
+            <li><a href="offence.html">Cyber Offence</a></li>
+            <li><a href="advisory.html">Advisory</a></li>
+            <li><a href="monitoring.html">Monitoring</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html#pillars">Why Us</a></li>
+        <li><a href="index.html#support">Support</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="page-header-bg">
+      <div class="hero-grid"></div>
+      <div class="hero-glow"></div>
+    </div>
+    <div class="container">
+      <span class="section-label">Cyber Defence</span>
+      <h1>Protect. Detect.<br /><span class="text-red">Respond.</span></h1>
+      <p>24/7 endpoint, network, and cloud protection. When threats emerge, we neutralize them before they escalate.</p>
+    </div>
+  </section>
+
+  <section class="services services-page">
+    <div class="container">
+      <div class="service-detail-grid">
+
+        <div class="service-detail-card">
+          <div class="service-icon large">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h2>Endpoint & Network Security</h2>
+          <p>Full-spectrum detection and response across every endpoint, network segment, and cloud workload in your environment. Our team monitors around the clock so threats are contained before they cause damage.</p>
+          <ul class="detail-list">
+            <li>EDR / XDR deployment and tuning</li>
+            <li>Network traffic analysis and anomaly detection</li>
+            <li>Cloud security posture management</li>
+            <li>24/7 alert monitoring and triage</li>
+            <li>Incident containment and remediation</li>
+          </ul>
+        </div>
+
+        <div class="service-detail-card">
+          <div class="service-icon large">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </div>
+          <h2>Digital Forensics & Incident Response</h2>
+          <p>When a breach happens, speed and accuracy matter. We deploy immediately to contain, investigate, and recover — then deliver a full root cause analysis so it doesn't happen again.</p>
+          <ul class="detail-list">
+            <li>Rapid containment and isolation</li>
+            <li>Forensic evidence collection and preservation</li>
+            <li>Malware analysis and reverse engineering</li>
+            <li>Post-incident root cause report</li>
+            <li>Recovery planning and hardening recommendations</li>
+          </ul>
+        </div>
+
+        <div class="service-detail-card">
+          <div class="service-icon large">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h2>Vulnerability Management</h2>
+          <p>Continuous scanning and prioritization across your entire infrastructure. We identify what's exploitable, rank it by real-world risk, and guide remediation before adversaries act.</p>
+          <ul class="detail-list">
+            <li>Authenticated and unauthenticated scanning</li>
+            <li>Risk-based prioritization (CVSS + context)</li>
+            <li>Patch guidance and remediation tracking</li>
+            <li>Recurring scan cadence and trend reporting</li>
+          </ul>
+        </div>
+
+        <div class="service-detail-card">
+          <div class="service-icon large">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/>
+            </svg>
+          </div>
+          <h2>Tabletop Exercises</h2>
+          <p>Realistic breach simulations run with your leadership and technical teams. We stress-test your incident response plans, expose gaps, and leave you with a clear action list.</p>
+          <ul class="detail-list">
+            <li>Custom scenarios based on your threat profile</li>
+            <li>Executive and technical formats available</li>
+            <li>Facilitator-led discussion and challenge injects</li>
+            <li>Gap analysis and improvement roadmap</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-strip">
+    <div class="container">
+      <div class="cta-inner">
+        <div>
+          <h2>Ready to <span class="text-red">Deploy</span>?</h2>
+          <p>Talk to us about your defence requirements.</p>
+        </div>
+        <a href="index.html#contact" class="btn btn-primary">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="logo.webp" alt="CyberLegionnaire" />
+          <p>Your Security Legionnaires.<br />Standing guard so you don't have to.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Cyber Defence</h4>
+          <ul>
+            <li><a href="defence.html">Endpoint Security</a></li>
+            <li><a href="defence.html">DFIR</a></li>
+            <li><a href="defence.html">Vulnerability Mgmt</a></li>
+            <li><a href="defence.html">Tabletop Exercises</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Cyber Offence</h4>
+          <ul>
+            <li><a href="offence.html">Penetration Testing</a></li>
+            <li><a href="offence.html">Red Teaming</a></li>
+            <li><a href="offence.html">Purple Teaming</a></li>
+            <li><a href="offence.html">Threat Profiling</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Advisory</h4>
+          <ul>
+            <li><a href="advisory.html">GRC & Compliance</a></li>
+            <li><a href="advisory.html">Security Training</a></li>
+            <li><a href="advisory.html">Security Policies</a></li>
+            <li><a href="advisory.html">Maturity Assessment</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 CyberLegionnaire Solutions. All rights reserved.</p>
+        <p>Designed to protect.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -15,15 +15,21 @@
   <!-- NAV -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
-      <a href="#home" class="nav-logo">
-        <img src="logo.webp" alt="CyberLegionnaire" />
-      </a>
+      <a href="index.html" class="nav-logo-text">CyberLegionnaire</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
+        <li class="has-dropdown">
+          <a href="services.html">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="11" height="11"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <ul class="dropdown">
+            <li><a href="defence.html">Cyber Defence</a></li>
+            <li><a href="offence.html">Cyber Offence</a></li>
+            <li><a href="advisory.html">Advisory</a></li>
+            <li><a href="monitoring.html">Monitoring</a></li>
+          </ul>
+        </li>
         <li><a href="#pillars">Why Us</a></li>
         <li><a href="#support">Support</a></li>
         <li><a href="#contact" class="nav-cta">Contact</a></li>
